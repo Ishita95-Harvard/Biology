@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cell Analysis Tool | TIFF Image Processor</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background: #f4f4f4; }
+        .container { max-width: 1200px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .upload-area { border: 2px dashed #ccc; padding: 20px; text-align: center; margin-bottom: 20px; cursor: pointer; }
+        .analysis-panel { display: flex; gap: 20px; flex-wrap: wrap; }
+        .image-panel { flex: 2; min-width: 300px; text-align: center; }
+        .results-panel { flex: 1; min-width: 250px; background: #f9f9f9; padding: 15px; border-radius: 5px; overflow-y: auto; max-height: 600px; }
+        canvas { max-width: 100%; height: auto; border: 1px solid #ddd; background: #eee; }
+        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px; }
+        button:hover { background: #0056b3; }
+        table { width: 100%; border-collapse: collapse; font-size: 12px; }
+        th, td { border: 1px solid #ddd; padding: 5px; text-align: left; }
+        th { background: #e0e0e0; position: sticky; top: 0; }
+        .result-stats { font-weight: bold; margin-bottom: 15px; padding: 10px; background: #e9ecef; border-radius: 5px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🔬 Cell Counter & Property Analyzer</h1>
+    <div class="upload-area" id="dropZone">
+        <p>📂 Drag & Drop or Click to upload a TIFF image</p>
+        <input type="file" id="fileInput" accept=".tif,.tiff" style="display: none;">
+    </div>
+    <div class="analysis-panel">
+        <div class="image-panel">
+            <canvas id="imageCanvas"></canvas>
+            <button id="analyzeBtn" disabled>🔍 Analyze Cells</button>
+        </div>
+        <div class="results-panel">
+            <h3>Analysis Results</h3>
+            <div id="resultsArea">
+                <p>Load an image to begin.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/image-js@0.27.0/dist/image-js.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
